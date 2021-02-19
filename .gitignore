@@ -7,3 +7,6 @@
 
 # npm
 /node_modules
+
+# Sublime
+*.sublime-workspace
