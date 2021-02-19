@@ -21,6 +21,7 @@ interface ser {
 	array: <T>(check: ser.SerializerStructure<T>) => ser.SerializerStructure<Array<T>>;
 
 	interface: <T extends { [index: string]: ser.SerializerStructure<any>}>(
+		name: string,
 		checkTable: T
 	) => ser.SerializerStructure<{ [P in keyof T]: ser.static<T[P]> }>;
 }
