@@ -25,5 +25,9 @@
   "directories": {
     "example": "example"
   },
-  "description": ""
+  "description": "",
+  "files": [
+    "src",
+    "index.d.ts"
+  ]
 }
