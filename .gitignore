@@ -4,3 +4,9 @@
 # Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
+
+# npm
+/node_modules
+
+# Sublime
+*.sublime-workspace
