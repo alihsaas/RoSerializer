@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"name": "Source",
+			"path": ".",
+			"folder_exclude_patterns": ["node_modules", "modules"],
+			"file_exclude_patterns": ["*.rbxmx"]
+		},
+		{
+			"name": "Test Code",
+			"path": "../ser-test-code",
+			"folder_exclude_patterns": ["node_modules", "include", "out"]
+		}
+	]
+}

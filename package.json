@@ -1,0 +1,29 @@
+{
+  "name": "@rbxts/ser",
+  "version": "1.0.0",
+  "main": "src/ts.lua",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alihsaas/ser.git"
+  },
+  "author": "alihsaas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alihsaas/ser/issues"
+  },
+  "homepage": "https://github.com/alihsaas/ser#readme",
+  "dependencies": {
+    "@rbxts/t": "^2.1.1"
+  },
+  "devDependencies": {
+    "@rbxts/compiler-types": "^1.0.0-beta.15.1",
+    "@rbxts/types": "^1.0.452"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "description": ""
+}
