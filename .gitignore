@@ -1,5 +1,5 @@
-# Project place file
-/RoSerializer.rbxlx
+# Project model files
+*.rbxmx
 
 # Roblox Studio lock files
 /*.rbxlx.lock
