@@ -34,7 +34,7 @@ declare namespace ser {
 		name: string,
 		validate: t.check<T>,
 		serialize<V>(value: V): V extends T ? Serialized<T> : never,
-		deserialize<V>(value: V): T extends Serialized<T> ? T : never
+		deserialize<V>(value: V): V extends Serialized<T> ? T : never
 	}
 }
 
