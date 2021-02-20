@@ -2,10 +2,6 @@ import { t } from "@rbxts/t";
 
 type Primitives = string | number | Color3 | Vector3
 
-type Serialized<T> = {
-	[P in keyof T]: T[P] extends Primitives ? string : Serialized<T[P]>
-}
-
 interface ser {
 
 	// Luau Primitives
@@ -28,7 +24,12 @@ interface ser {
 
 declare namespace ser {
 	/** creates a static type from a ser-defined type */
-	export type static<T> = T extends ser.SerializerStructure<infer U> ? U : never;
+	export type static<T> = T extends SerializerStructure<infer U> ? U : never;
+
+	/** creates a type where all the properties of T are strings */
+	export type Serialized<T> = {
+		[P in keyof T]: T[P] extends Primitives ? string : Serialized<T[P]>
+	}
 
 	export interface SerializerStructure<T> {
 		name: string,
