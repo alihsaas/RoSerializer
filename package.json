@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/ser",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/ts.lua",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
