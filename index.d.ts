@@ -33,8 +33,8 @@ declare namespace ser {
 	export interface SerializerStructure<T> {
 		name: string,
 		validate: t.check<T>,
-		serialize<V>(value: V): V extends T ? Serialized<T> : never,
-		deserialize<V>(value: V): V extends Serialized<T> ? T : never
+		serialize(value: T): Serialized<T>,
+		deserialize(value: Serialized<T>): T
 	}
 }
 
