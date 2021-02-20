@@ -1,6 +1,8 @@
 import { t } from "@rbxts/t";
 
-type Primitives = string | number | Color3 | Vector3
+type Primitives = string | number | boolean | Color3
+
+type Undefined<T, K> = T extends undefined ? K | undefined : K
 
 type KeysOfType<T, SelectedType> = {
   [key in keyof T]: SelectedType extends T[key] ? key : never
@@ -40,7 +42,7 @@ declare namespace ser {
 
 	/** creates a type where all the properties of T are strings */
 	export type Serialized<T> = {
-		[P in keyof T]: T[P] extends Primitives ? string : Serialized<T[P]>
+		[P in keyof T]: T[P] extends Primitives ? Undefined<T, string> : Undefined<T, Serialized<T[P]>>
 	}
 
 	export interface SerializerStructure<T> {
