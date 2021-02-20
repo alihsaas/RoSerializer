@@ -31,13 +31,13 @@ return function()
 		print(ser.color3)
 		local interface = ser.interface("TestInterface", {
 			String = ser.string,
-			Number = ser.number,
+			Number = ser.optional(ser.number),
 			Color3 = ser.Color3,
 		})
 
 		local initial = {
-			String = "LoL!",
-			Number = 10,
+			String = "string",
+			Number = 2,
 			Color3 = Color3.fromRGB(10, 10, 10)
 		}
 

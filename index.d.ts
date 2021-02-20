@@ -2,6 +2,16 @@ import { t } from "@rbxts/t";
 
 type Primitives = string | number | Color3 | Vector3
 
+type KeysOfType<T, SelectedType> = {
+  [key in keyof T]: SelectedType extends T[key] ? key : never
+}[keyof T];
+
+type Optional<T> = Partial<Pick<T, KeysOfType<T, undefined>>>;
+
+type Required<T> = Omit<T, KeysOfType<T, undefined>>;
+
+type OptionalUndefined<T> = Optional<T> & Required<T>;
+
 interface ser {
 
 	// Luau Primitives
@@ -16,10 +26,12 @@ interface ser {
 	// ser functions
 	array: <T>(check: ser.SerializerStructure<T>) => ser.SerializerStructure<Array<T>>;
 
+	optional: <T>(check: ser.SerializerStructure<T>) => ser.SerializerStructure<T | undefined>;
+
 	interface: <T extends { [index: string]: ser.SerializerStructure<any>}>(
 		name: string,
 		checkTable: T
-	) => ser.SerializerStructure<{ [P in keyof T]: ser.static<T[P]> }>;
+	) => ser.SerializerStructure<OptionalUndefined<{ [P in keyof T]: ser.static<T[P]>}>>;
 }
 
 declare namespace ser {
