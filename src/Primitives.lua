@@ -3,8 +3,6 @@ local t = require(script.Parent.t)
 
 local hexUtility = require(script.Parent.HexUtility)
 
-local ERROR_MESSAGE = "Failed to deserialize value of type %s in %s"
-
 local Primitives = {}
 
 Primitives.string = Serializer(
@@ -37,14 +35,14 @@ Primitives.boolean = Serializer(
 	"Boolean",
 	t.boolean,
 	function(self, serialize)
-		if t.boolean(serialize) then
+		if not t.boolean(serialize) then
 			error(("Failed to serialize value of type %s. Expected %s"):format(typeof(serialize), self.name))
 		end
 
 		return serialize and "1" or "0"
 	end,
 	function(_, deserialize)
-		if t.literal("0", "1")(deserialize) then
+		if not t.literal("0", "1")(deserialize) then
 			error(("Failed to deserialize value of value %s. Expected '0' or '1'"):format(tostring(deserialize)))
 		end
 
