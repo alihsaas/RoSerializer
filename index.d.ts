@@ -53,5 +53,6 @@ declare namespace ser {
 	}
 }
 
+export as namespace ser;
 declare const ser: ser;
 export { ser };
